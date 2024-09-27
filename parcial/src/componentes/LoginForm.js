@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { FormattedMessage } from 'react-intl'; // Importar FormattedMessage
+import { FormattedMessage } from 'react-intl';
 import './LoginForm.css';
 
 const LoginForm = () => {
@@ -9,10 +9,18 @@ const LoginForm = () => {
   const [error, setError] = useState('');
   const navigate = useNavigate();
 
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
 
-    if (username === 'admin' && password === 'pass') {
+    const response = await fetch('http://localhost:3001/login', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ login: username, password }),
+    });
+
+    if (response.ok) {
       navigate('/robots');
     } else {
       setError('Error de autenticación. Revise sus credenciales');
@@ -22,16 +30,16 @@ const LoginForm = () => {
   return (
     <div className="login-container">
       <h1>
-        <FormattedMessage id="header" /> {/* Usar FormattedMessage */}
+        <FormattedMessage id="header" />
       </h1>
       <img src="/images/robots.jpg" alt="Robot" className="robot-image" />
       <h2>
-        <FormattedMessage id="loginTitle" /> {/* Usar FormattedMessage */}
+        <FormattedMessage id="loginTitle" />
       </h2>
       <form onSubmit={handleLogin}>
         <div className="input-group">
           <label htmlFor="username">
-            <FormattedMessage id="username" /> {/* Usar FormattedMessage */}
+            <FormattedMessage id="username" />
           </label>
           <input
             id="username"
@@ -43,7 +51,7 @@ const LoginForm = () => {
         </div>
         <div className="input-group">
           <label htmlFor="password">
-            <FormattedMessage id="password" /> {/* Usar FormattedMessage */}
+            <FormattedMessage id="password" />
           </label>
           <input
             id="password"
@@ -55,7 +63,7 @@ const LoginForm = () => {
         </div>
         <div className="button-container">
           <button type="submit" className="action-button1">
-            <FormattedMessage id="loginButton" /> {/* Usar FormattedMessage */}
+            <FormattedMessage id="loginButton" />
           </button>
           <button
             type="button"
@@ -65,13 +73,13 @@ const LoginForm = () => {
               setPassword('');
             }}
           >
-            <FormattedMessage id="cancelButton" /> {/* Usar FormattedMessage */}
+            <FormattedMessage id="cancelButton" />
           </button>
         </div>
         {error && <p className="error-message">{error}</p>}
       </form>
       <p className="footer-text">
-        <FormattedMessage id="contact" /> {/* Usar FormattedMessage */}
+        <FormattedMessage id="contact" />
       </p>
     </div>
   );

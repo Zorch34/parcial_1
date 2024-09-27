@@ -1,11 +1,20 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { FormattedMessage } from 'react-intl';
-import robots from './robotsData'; 
 import './RobotList.css'; 
 import RobotDetail from './RobotDetail';
 
 const RobotList = () => {
+  const [robots, setRobots] = useState([]);
   const [selectedRobot, setSelectedRobot] = useState(null);
+
+  useEffect(() => {
+    const fetchRobots = async () => {
+      const response = await fetch('http://localhost:3001/robots');
+      const data = await response.json();
+      setRobots(data);
+    };
+    fetchRobots();
+  }, []);
 
   const handleRobotClick = (robot) => {
     setSelectedRobot(robot);
