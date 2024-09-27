@@ -1,0 +1,29 @@
+.robot-detail-container {
+    padding: 20px;
+    text-align: center;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .robot-detail-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+  }
+  
+  .robot-detail-image {
+    width: 250px;
+    border-radius: 10px;
+    margin-right: 20px;
+  }
+  
+  .robot-details {
+    text-align: left;
+  }
+  
+  h1 {
+    color: #1d1f1d;
+    margin-bottom: 20px;
+  }
