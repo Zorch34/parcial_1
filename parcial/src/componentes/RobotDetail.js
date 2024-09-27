@@ -1,5 +1,6 @@
 import React from 'react';
 import './RobotDetail.css';
+import { FormattedMessage } from 'react-intl'; // Importar FormattedMessage
 
 const RobotDetail = ({ robot }) => {
   return (
@@ -8,11 +9,11 @@ const RobotDetail = ({ robot }) => {
       <div className="robot-info">
         <img src={robot.imagen} alt={robot.nombre} className="robot-detail-image" />
         <div className="robot-detail-text">
-          <p><strong>Modelo:</strong> {robot.modelo}</p>
-          <p><strong>Fabricante:</strong> {robot.empresaFabricante}</p>
-          <p><strong>Año de Fabricación:</strong> {robot.añoFabricacion}</p>
-          <p><strong>Capacidad de Procesamiento:</strong> {robot.capacidadProcesamiento}</p>
-          <p><strong>Humor:</strong> {robot.humor}</p>
+          <p><strong><FormattedMessage id="model" />:</strong> {robot.modelo}</p> {/* Localización */}
+          <p><strong><FormattedMessage id="manufacturer" />:</strong> {robot.empresaFabricante}</p> {/* Localización */}
+          <p><strong><FormattedMessage id="year" />:</strong> {robot.añoFabricacion}</p> {/* Localización */}
+          <p><strong><FormattedMessage id="processingCapacity" />:</strong> {robot.capacidadProcesamiento}</p> {/* Localización */}
+          <p><strong><FormattedMessage id="humor" />:</strong> {robot.humor}</p> {/* Localización */}
         </div>
       </div>
     </div>

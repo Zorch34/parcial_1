@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { FormattedMessage } from 'react-intl'; // Importar FormattedMessage
 import './LoginForm.css';
 
 const LoginForm = () => {
@@ -20,12 +21,18 @@ const LoginForm = () => {
 
   return (
     <div className="login-container">
-      <h1>Adopta un Robot con Robot Lovers!</h1>
+      <h1>
+        <FormattedMessage id="header" /> {/* Usar FormattedMessage */}
+      </h1>
       <img src="/images/robots.jpg" alt="Robot" className="robot-image" />
-      <h2>Inicio de sesión</h2>
+      <h2>
+        <FormattedMessage id="loginTitle" /> {/* Usar FormattedMessage */}
+      </h2>
       <form onSubmit={handleLogin}>
         <div className="input-group">
-          <label htmlFor="username">Nombre de usuario</label>
+          <label htmlFor="username">
+            <FormattedMessage id="username" /> {/* Usar FormattedMessage */}
+          </label>
           <input
             id="username"
             type="text"
@@ -35,7 +42,9 @@ const LoginForm = () => {
           />
         </div>
         <div className="input-group">
-          <label htmlFor="password">Contraseña</label>
+          <label htmlFor="password">
+            <FormattedMessage id="password" /> {/* Usar FormattedMessage */}
+          </label>
           <input
             id="password"
             type="password"
@@ -45,12 +54,25 @@ const LoginForm = () => {
           />
         </div>
         <div className="button-container">
-          <button type="submit" className="action-button1">Ingresar</button>
-          <button type="button" className="action-button2" onClick={() => { setUsername(''); setPassword(''); }}>Cancelar</button>
+          <button type="submit" className="action-button1">
+            <FormattedMessage id="loginButton" /> {/* Usar FormattedMessage */}
+          </button>
+          <button
+            type="button"
+            className="action-button2"
+            onClick={() => {
+              setUsername('');
+              setPassword('');
+            }}
+          >
+            <FormattedMessage id="cancelButton" /> {/* Usar FormattedMessage */}
+          </button>
         </div>
         {error && <p className="error-message">{error}</p>}
       </form>
-      <p className="footer-text">Contact us: +57 3102105253 - info@robot-lovers.com - @robot-lovers</p>
+      <p className="footer-text">
+        <FormattedMessage id="contact" /> {/* Usar FormattedMessage */}
+      </p>
     </div>
   );
 };

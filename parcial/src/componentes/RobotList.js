@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { FormattedMessage } from 'react-intl';
 import robots from './robotsData'; 
 import './RobotList.css'; 
 import RobotDetail from './RobotDetail';
@@ -12,17 +13,17 @@ const RobotList = () => {
 
   return (
     <div className="robot-list-container">
-      <h1>Adopta un Robot con Robot Lovers!</h1>
+      <h1><FormattedMessage id="header" /></h1>
       <img src="/images/robots.jpg" alt="Robot" className="robot-image" />
       
       <div className="content-container">
         <table className="robot-table">
           <thead>
             <tr>
-              <th>ID</th>
-              <th>Nombre</th>
-              <th>Modelo</th>
-              <th>Empresa Fabricante</th>
+              <th><FormattedMessage id="id" /></th>
+              <th><FormattedMessage id="name" /></th>
+              <th><FormattedMessage id="model" /></th>
+              <th><FormattedMessage id="manufacturer" /></th>
             </tr>
           </thead>
           <tbody>
@@ -45,7 +46,9 @@ const RobotList = () => {
         )}
       </div>
 
-      <p className="footer-text">Contact us: +57 3102105253 - info@robot-lovers.com - @robot-lovers</p>
+      <p className="footer-text">
+        <FormattedMessage id="contact" />
+      </p>
     </div>
   );
 };
