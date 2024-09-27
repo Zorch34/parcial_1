@@ -1,57 +1,79 @@
 .login-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #f0f0f0;
+    max-width: 900px;
+    margin: auto;
+    text-align: center;
+    padding: 20px;
+    background-color: #f9f9f9;
 }
 
 .robot-image {
-    width: 150px;
-    margin-bottom: 20px;
+    width: 100%;
+    margin-bottom: 10px;
 }
 
-h2 {
-    margin-bottom: 20px;
+.input-group {
+    margin-bottom: 15px;
 }
 
-form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.input-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px; 
+    font-size: 14px;
+    text-align: left; 
+    width: 40%;
+    margin: 0 auto; 
 }
 
-input {
-    width: 250px;
-    padding: 10px;
-    margin: 10px 0;
+.input-field {
+    width: 40%;
+    padding: 8px;
     border: 1px solid #ccc;
-    border-radius: 5px;
+    border-radius: 4px;
+    font-size: 14px;
 }
 
-button {
-    width: 260px;
-    padding: 10px;
-    margin-top: 10px;
-    background-color: #007bff;
+.button-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.action-button1 {
+    width: 20%;
+    padding: 8px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #1c5fa5;
     color: white;
-    border: none;
-    border-radius: 5px;
     cursor: pointer;
+    font-size: 14px;
 }
 
-button:hover {
+.action-button2 {
+    width: 20%;
+    padding: 8px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #e10c0c;
+    color: rgb(2, 2, 2);
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.action-button:hover {
     background-color: #0056b3;
 }
-.button-container {
-  display: flex; 
-  gap: 10px; 
-  margin-top: 10px; 
+
+.error-message {
+    color: red;
+    margin-top: 10px;
 }
-.footer {
-  margin-top: 20px; 
-  text-align: center; 
-  font-size: 14px;
-  color: #555; 
+
+.footer-text {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 12px;
 }

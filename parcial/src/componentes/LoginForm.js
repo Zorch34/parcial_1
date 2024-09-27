@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import './LoginForm.css';  // Importamos el archivo CSS
+import './LoginForm.css';
 
 const LoginForm = () => {
   const [username, setUsername] = useState('');
@@ -11,18 +11,11 @@ const LoginForm = () => {
   const handleLogin = (e) => {
     e.preventDefault();
 
-    // Credenciales correctas
     if (username === 'admin' && password === 'pass') {
-      navigate('/robots');  // Redirigir al listado de robots
+      navigate('/robots');
     } else {
-      setError('Credenciales incorrectas');
+      setError('Error de autenticación. Revise sus credenciales');
     }
-  };
-
-  const handleCancel = () => {
-    setUsername('');
-    setPassword('');
-    setError('');
   };
 
   return (
@@ -31,31 +24,33 @@ const LoginForm = () => {
       <img src="/images/robots.jpg" alt="Robot" className="robot-image" />
       <h2>Inicio de sesión</h2>
       <form onSubmit={handleLogin}>
-        <div>
+        <div className="input-group">
+          <label htmlFor="username">Nombre de usuario</label>
           <input
+            id="username"
             type="text"
-            placeholder="Nombre de usuario"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
+            className="input-field"
           />
         </div>
-        <div>
+        <div className="input-group">
+          <label htmlFor="password">Contraseña</label>
           <input
+            id="password"
             type="password"
-            placeholder="Contraseña"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
+            className="input-field"
           />
         </div>
-        <div className="button-container"> {/* Div para alinear botones */}
-          <button type="submit">Ingresar</button>
-          <button type="button" onClick={handleCancel}>Cancelar</button>
+        <div className="button-container">
+          <button type="submit" className="action-button1">Ingresar</button>
+          <button type="button" className="action-button2" onClick={() => { setUsername(''); setPassword(''); }}>Cancelar</button>
         </div>
-        {error && <p style={{ color: 'red' }}>{error}</p>}
+        {error && <p className="error-message">{error}</p>}
       </form>
-      <footer className="footer">
-        <p>Contact Us: +57 3102105253 - info@robot-lovers.com - @robot-lovers</p>
-      </footer>
+      <p className="footer-text">Contact us: +57 3102105253 - info@robot-lovers.com - @robot-lovers</p>
     </div>
   );
 };
